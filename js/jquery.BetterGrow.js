@@ -234,12 +234,16 @@
 
 				// if on_enter EXISTS and enter pressed, override default behavior
 				if (settings.on_enter != null) {
-					settings.on_enter();
-					
-					if (settings.do_not_enter) {
-						e.preventDefault();
-						e.stopImmediatePropagation();
-					}
+                    if (!e.shiftKey) {
+                        settings.on_enter();
+
+                        if (settings.do_not_enter) {
+                            e.preventDefault();
+                            e.stopImmediatePropagation();
+                        }
+                    } else {
+
+                    }
 				}
 			}
 		});
